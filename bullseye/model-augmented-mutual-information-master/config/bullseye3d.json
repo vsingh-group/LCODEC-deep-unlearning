@@ -1,0 +1,60 @@
+{
+    "name": "3d_bullseye_regularized",
+    "n_gpu": 0,
+    "arch": {
+        "type": "MappingFFGaussian",
+        "args": {
+            "xdim": 3,
+            "ydim": 1,
+            "num_features": 6,
+            "dim_z_per": 1,
+            "encoder_layers": 40,
+            "decoder_layers": 400,
+            "delta": 4
+        }
+    },
+    "data_loader": {
+        "type": "NpSupervisedDataLoader",
+        "args": {
+            "x_path": "data/bullseye3dX.npy",
+            "y_path": "data/bullseye3dY.npy",
+            "batch_size": 50,
+            "shuffle": true,
+            "validation_split": 0.0,
+            "test_split": 0.0,
+            "num_workers": 0,
+            "seed": 0
+        }
+    },
+    "optimizer": {
+        "type": "AdamW",
+        "args": {
+            "lr": 0.001,
+            "weight_decay": 0.0,
+            "amsgrad": false
+        }
+    },
+    "loss": {
+        "type": "gaussian_loss",
+        "reg_coeff": 0.1
+    },
+    "metrics": [],
+    "lr_scheduler": {
+        "type": "ReduceLROnPlateau",
+        "args": {
+            "patience": 15,
+            "factor": 0.1
+        }
+    },
+    "trainer": {
+        "type": "TrainerPushPull",
+        "epochs": 400,
+        "save_dir": "saved/",
+        "save_period": 150,
+        "verbosity": 0,
+        "monitor": "min loss",
+        "early_stop": 50,
+        "log_dir": "saved/runs",
+        "plotz": true
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "name": "Bullseye2Dnominal",
+    "n_gpu": 0,
+    "arch": {
+        "type": "MappingFFGaussian",
+        "args": {
+            "xdim": 2,
+            "ydim": 1,
+            "num_features": 1,
+            "dim_z_per": 2,
+            "encoder_layers": 8,
+            "decoder_layers": 8,
+            "block_drop": 0.0
+        }
+    },
+    "data_loader": {
+        "type": "SupervisedDataLoader",
+        "args": {
+            "data_dir": "data/bullseye2dX.h5",
+            "batch_size": 25,
+            "shuffle": true,
+            "validation_split": 0.0,
+            "test_split": 0.0,
+            "num_workers": 0,
+            "seed": 0
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args": {
+            "lr": 0.001,
+            "weight_decay": 0.0,
+            "amsgrad": true
+        }
+    },
+    "loss": {
+        "type": "gaussian_loss",
+        "reg_coeff": 0.0
+    },
+    "metrics": [],
+    "lr_scheduler": {
+        "type": "ReduceLROnPlateau",
+        "args": {
+            "patience": 10,
+            "factor": 0.5
+        }
+    },
+    "trainer": {
+        "type": "TrainerPushPull",
+        "epochs": 300,
+        "save_dir": "saved/",
+        "save_period": 300,
+        "verbosity": 0,
+        "monitor": "min loss",
+        "early_stop": 10,
+        "log_dir": "saved/runs",
+        "plotz": true
+    }
+}
