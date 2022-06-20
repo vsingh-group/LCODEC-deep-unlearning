@@ -25,9 +25,9 @@ For the deep learning unlearning pipeline, the `scrub/scrub_tools.py` file conta
 ```
 for m in range(params.n_perturbations):
 	tmpdata = x + (0.1)*torch.randn(x.shape).to(device)
-	            acts, out = myActs.getActivations(tmpdata.to(device))
-	            loss = criterion(out, y_true)
-	            vec_acts = p2v(acts)
+	acts, out = myActs.getActivations(tmpdata.to(device))
+	loss = criterion(out, y_true)
+	vec_acts = p2v(acts)
 ```
 where the `getActivations` is computed using PyTorch activation hooks defined in `scrub/hypercolumn.py`.
 
