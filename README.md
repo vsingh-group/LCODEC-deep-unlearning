@@ -1,10 +1,15 @@
 #  Deep Unlearning via Randomized Conditionally Independent Hessians (CVPR 2022)
-#### Ronak Mehta, Sourav Pal, Sathya Ravi, Vikas Singh
+
+#### Ronak Mehta*, Sourav Pal*, Vikas Singh, Sathya N. Ravi
+(* Joint First authors)
 ![LCODEC Pipeline](/assets/lfoci_pipeline.png?raw=true)
 
 ## Abstract
 Recent legislation has led to interest in machine unlearning, i.e., removing specific training samples from a predictive model as if they never existed in the training dataset. Unlearning may also be required due to corrupted/adversarial data or simply a user’s updated privacy requirement. For models which require no training (k-NN), simply deleting the closest original sample can be effective. But this idea is inapplicable to models which learn richer representations. Recent ideas leveraging optimization-based updates scale poorly with the model dimension d, due to inverting the Hessian of the loss function. We use a variant of a new conditional independence coefficient, L-CODEC, to identify a subset of the model parameters with the most semantic overlap on an individual sample level. Our approach completely avoids the need to invert a (possibly) huge matrix. By utilizing a Markov blanket selection common in the literature, we premise that L-CODEC is also suitable for deep unlearning, as well as other applications in vision. Compared to alternatives, L-CODEC makes approximate unlearning possible in settings that would otherwise be infeasible, including vision models used for face recognition, person re-identification and NLP models that may require unlearning data identified for exclusion.
+
 [Full Paper Link at CVPR 2022 Proceedings.](https://openaccess.thecvf.com/content/CVPR2022/html/Mehta_Deep_Unlearning_via_Randomized_Conditionally_Independent_Hessians_CVPR_2022_paper.html)
+
+[Supplementary Material](https://openaccess.thecvf.com/content/CVPR2022/supplemental/Mehta_Deep_Unlearning_via_CVPR_2022_supplemental.zip)
 
 ## Code
 All experiments are run within the specified folders, and call out to 'codec'.
@@ -26,7 +31,7 @@ for m in range(params.n_perturbations):
 where the `getActivations` is computed using PyTorch activation hooks defined in `scrub/hypercolumn.py`.
 
 ## Reference
-If you use this code, please cite our recent publication at CVPR 2022, which can be found here: [CVF CVPR 2022 Proceedings](https://openaccess.thecvf.com/content/CVPR2022/html/Mehta_Deep_Unlearning_via_Randomized_Conditionally_Independent_Hessians_CVPR_2022_paper.html).
+If you find our paper helpful and use this code, please cite our [publication](https://openaccess.thecvf.com/content/CVPR2022/html/Mehta_Deep_Unlearning_via_Randomized_Conditionally_Independent_Hessians_CVPR_2022_paper.html) at CVPR 2022. 
 
 
 ```
