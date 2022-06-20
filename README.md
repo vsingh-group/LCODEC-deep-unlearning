@@ -17,6 +17,7 @@ Navigate to each folder for example scripts and directions on how to run in __ex
 
 #### Conditional Independence Core
 For our core conditional independence testing engine, you can check out and use the functions in the `codec/` folder.
+We provide MATLAB and Python implementations of the newly proposed measure of [Conditional Dependence (CODEC)](https://www.tandfonline.com/doi/full/10.1080/01621459.2020.1758115) and the associated feature selection scheme [FOCI](https://projecteuclid.org/journals/annals-of-statistics/volume-49/issue-6/A-simple-measure-of-conditional-dependence/10.1214/21-AOS2073.full). Additionally, it also has the implementation of our proposed randomized versions of LCODEC and LFOCI. There is significant gain in computation time when nearest neighbors are computed on GPU as done in our implementations.
 
 
 #### Deep Learning Pipeline
