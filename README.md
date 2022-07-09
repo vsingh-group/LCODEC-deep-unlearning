@@ -1,4 +1,5 @@
 #  Deep Unlearning via Randomized Conditionally Independent Hessians (CVPR 2022)
+[[Paper]](https://openaccess.thecvf.com/content/CVPR2022/papers/Mehta_Deep_Unlearning_via_Randomized_Conditionally_Independent_Hessians_CVPR_2022_paper.pdf) [[Slide]](https://github.com/vsingh-group/LCODEC-deep-unlearning/blob/main/assets/DeepUnlearningCVPR22.pdf)
 
 #### Ronak Mehta*, Sourav Pal*, Vikas Singh, Sathya N. Ravi
 (* Joint First authors)
